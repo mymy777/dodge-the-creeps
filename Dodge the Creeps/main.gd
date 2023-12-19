@@ -17,14 +17,18 @@ func _process(delta):
 func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
+	$HUD.show_game_over()
 	
 func new_game():
 	score = 0
 	$Player.start($StartPosition.position)
 	$StartTimer
 
+	$HUD.update_score(score)
+	$HUD.show_message("Get Ready")\
 
 func _on_mob_timer_timeout():
+	$HUD.update_score(score)
 	var mob = mob_scene.instantiate()
 	
 	var mob_spawn_location = get_node("MobPath/MobSpawnLocation")
