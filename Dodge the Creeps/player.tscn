@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://u8njweqhg1b5"]
+[gd_scene load_steps=7 format=3 uid="uid://u8njweqhg1b5"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_vif5r"]
 [ext_resource type="Texture2D" uid="uid://cfr55wwtn0qqk" path="res://art/playerGrey_up1.png" id="1_vsnu1"]
 [ext_resource type="Texture2D" uid="uid://rbjgcka7duig" path="res://art/playerGrey_walk2.png" id="2_hbxky"]
+[ext_resource type="Texture2D" uid="uid://il0mhydhsdi6" path="res://art/playerGrey_walk1.png" id="4_fwa21"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pquj4"]
 animations = [{
@@ -17,7 +18,13 @@ animations = [{
 "name": &"up",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fwa21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hbxky")
+}],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
@@ -35,7 +42,7 @@ metadata/_edit_horizontal_guides_ = []
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_pquj4")
-animation = &"up"
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xrw7m")
